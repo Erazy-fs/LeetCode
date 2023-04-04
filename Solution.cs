@@ -4,21 +4,25 @@ public class Solution
 {
     public IList<string> FizzBuzz(int n)
     {
-        List<string> result = Enumerable.Range(1, n).Select(k => Convert.ToString(k)).ToList();
+        string[] result = new string[n];
 
-        for (int i = 3; i <= n; i += 3)
+        for (int i = 1; i <= n; i++)
         {
-            result[i - 1] = "Fizz";
-        }
+            string subStr = "";
+            if (i % 3 == 0)
+            {
+                subStr += "Fizz";
+            }
+            if (i % 5 == 0)
+            {
+                subStr += "Buzz";
+            }
+            if (subStr == "")
+            {
+                subStr = Convert.ToString(i);
+            }
 
-        for (int i = 5; i <= n; i += 5)
-        {
-            result[i - 1] = "Buzz";
-        }
-
-        for (int i = 15; i <= n; i += 15)
-        {
-            result[i - 1] = "FizzBuzz";
+            result[i - 1] = subStr;
         }
 
         return result;
