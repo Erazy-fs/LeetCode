@@ -13,7 +13,7 @@ public class Solution
             }
             else
             {
-                num--;
+                num = num & 1048574;
             }
             count++;
         }
