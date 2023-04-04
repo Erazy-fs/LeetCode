@@ -7,7 +7,7 @@ public class Solution
         int count = 0;
         while (num > 0)
         {
-            if (num % 2 == 0)
+            if ((num & 1) == 0)
             {
                 num = num >> 1;
             }
