@@ -4,13 +4,13 @@ public class Solution
 {
     public ListNode MiddleNode(ListNode head)
     {
-        List<ListNode> result = new();
-        while (head != null)
+        ListNode result = head;
+        while (head != null && head.next != null)
         {
-            result.Add(head);
-            head = head.next;
+            result = result.next;
+            head = head.next.next;
         }
 
-        return result[result.Count / 2];
+        return result;
     }
 }
