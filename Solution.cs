@@ -4,22 +4,17 @@ public class Solution
 {
     public void DuplicateZeros(int[] arr)
     {
-        int[] arrCopy = new int[arr.Length];
-        Array.Copy(arr, arrCopy, arr.Length);
-        int shift = 0;
+        int zerosCount = arr.Count(num => num == 0);
 
-        for (int i = 0; i + shift < arrCopy.Length; i++)
+        for (int i = arr.Length - 1; i >= 0 && zerosCount > 0; i--)
         {
-            arr[i + shift] = arrCopy[i];
-
-            if (arrCopy[i] == 0)
+            if (arr[i] == 0)
             {
-                shift++;
-                if (i + shift == arrCopy.Length)
+                zerosCount--;
+                for (int j = arr.Length - 1; j > i; j--)
                 {
-                    break;
+                    arr[j] = arr[j - 1];
                 }
-                arr[i + shift] = arrCopy[i];
             }
         }
     }
