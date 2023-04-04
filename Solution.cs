@@ -4,6 +4,6 @@ public class Solution
 {
     public int FindNumbers(int[] nums)
     {
-        return nums.Select(x => x.ToString()).Where(x => (x.Length & 1) == 0).Count();
+        return nums.Count(num => (num.ToString().Length & 1) == 0);
     }
 }
