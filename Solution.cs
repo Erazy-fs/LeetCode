@@ -4,16 +4,17 @@ public class Solution
 {
     public ListNode MiddleNode(ListNode head)
     {
-        byte iter = 1;
+        byte count = 0;
         ListNode result = head;
         while (head.next != null)
         {
-            if (iter % 2 != 0)
-            {
-                result = result.next;
-            }
             head = head.next;
-            iter++;
+            count++;
+        }
+
+        for (byte i = 0; i < (count + 1) / 2; i++)
+        {
+            result = result.next;
         }
 
         return result;
