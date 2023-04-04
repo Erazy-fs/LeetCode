@@ -9,26 +9,12 @@ public class Solution
 
         for (int i = 0; i < ransomNote.Length; i++)
         {
-            if (rnDict.ContainsKey(ransomNote[i]))
-            {
-                rnDict[ransomNote[i]]++;
-            }
-            else
-            {
-                rnDict.Add(ransomNote[i], 1);
-            }
+            rnDict[ransomNote[i]] = rnDict.GetValueOrDefault(ransomNote[i], 0) + 1;
         }
 
         for (int i = 0; i < magazine.Length; i++)
         {
-            if (magDict.ContainsKey(magazine[i]))
-            {
-                magDict[magazine[i]]++;
-            }
-            else
-            {
-                magDict.Add(magazine[i], 1);
-            }
+            magDict[magazine[i]] = magDict.GetValueOrDefault(magazine[i], 0) + 1;
         }
 
         foreach (var letter in rnDict)
