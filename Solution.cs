@@ -4,6 +4,22 @@ public class Solution
 {
     public int FindMaxConsecutiveOnes(int[] nums)
     {
-        return nums.Length < 3 ? nums.Count(x => x == 1) : Enumerable.Range(1, nums.Length - 1).Select(x => nums[x] == 1 ? nums[x] = nums[x - 1] + 1 : nums[x] = nums[x]).Max();
+        int maxCount = 0;
+        int currentCount = 0;
+
+        foreach (int num in nums)
+        {
+            if (num == 1)
+            {
+                currentCount++;
+            }
+            else
+            {
+                currentCount = 0;
+            }
+            maxCount = Math.Max(currentCount, maxCount);
+        }
+
+        return maxCount;
     }
 }
