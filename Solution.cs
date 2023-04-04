@@ -4,19 +4,14 @@ public class Solution
 {
     public ListNode MiddleNode(ListNode head)
     {
-        byte count = 0;
-        ListNode result = head;
+        List<ListNode> result = new();
         while (head.next != null)
         {
+            result.Add(head);
             head = head.next;
-            count++;
         }
+        result.Add(head);
 
-        for (byte i = 0; i < (count + 1) / 2; i++)
-        {
-            result = result.next;
-        }
-
-        return result;
+        return result[result.Count / 2];
     }
 }
