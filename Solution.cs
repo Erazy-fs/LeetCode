@@ -1,4 +1,4 @@
-﻿// Beginner's Guide
+// Beginner's Guide
 // 1342. Number of Steps to Reduce a Number to Zero
 public class Solution
 {
@@ -13,11 +13,10 @@ public class Solution
             }
             else
             {
-                num = num & 1048574;
+                num = num & 1048574; // 11111111111111111110
             }
             count++;
         }
-
         return count;
     }
 }
