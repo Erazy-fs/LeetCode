@@ -1,30 +1,20 @@
-﻿// Beginner's Guide
+// Beginner's Guide
 // 412. Fizz Buzz
 public class Solution
 {
     public IList<string> FizzBuzz(int n)
     {
-        string[] result = new string[n];
+        return Enumerable.Range(1, n).Select(ProcessNum).ToList();
+    }
 
-        for (int i = 1; i <= n; i++)
+    public string ProcessNum(int n)
+    {
+        return n switch
         {
-            string subStr = "";
-            if (i % 3 == 0)
-            {
-                subStr += "Fizz";
-            }
-            if (i % 5 == 0)
-            {
-                subStr += "Buzz";
-            }
-            if (subStr == "")
-            {
-                subStr = Convert.ToString(i);
-            }
-
-            result[i - 1] = subStr;
-        }
-
-        return result;
+            int num when num % 3 == 0 && num % 5 == 0 => "FizzBuzz",
+            int num when num % 3 == 0 => "Fizz",
+            int num when num % 5 == 0 => "Buzz",
+            _ => n.ToString(),
+        };
     }
 }
